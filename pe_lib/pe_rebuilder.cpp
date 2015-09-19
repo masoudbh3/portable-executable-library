@@ -179,7 +179,7 @@ void rebuild_pe(pe_base& pe, std::ostream& out, bool strip_dos_header, bool chan
 //If strip_dos_header is true, DOS headers partially will be used for PE headers
 //If change_size_of_headers == true, SizeOfHeaders will be recalculated automatically
 //If save_bound_import == true, existing bound import directory will be saved correctly (because some compilers and bind.exe put it to PE headers)
-void rebuild_pe(pe_base& pe, char* out, bool strip_dos_header, bool change_size_of_headers, bool save_bound_import)
+void rebuild_pe(pe_base& pe, const char* out, bool strip_dos_header, bool change_size_of_headers, bool save_bound_import)
 {
 	std::ofstream pe_file(out, std::ios::out | std::ios::binary | std::ios::trunc);
 	if(!pe_file)
