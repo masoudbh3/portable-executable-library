@@ -6,7 +6,7 @@
 namespace pe_bliss
 {
 //Default process language, UNICODE
-const std::wstring version_info_viewer::default_language_translation(L"041904b0");
+const std::wstring version_info_viewer::default_language_translation(L"040904b0");
 
 //Default constructor
 //strings - version info strings with charsets

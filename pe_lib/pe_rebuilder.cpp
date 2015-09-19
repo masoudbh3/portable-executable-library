@@ -174,4 +174,20 @@ void rebuild_pe(pe_base& pe, std::ostream& out, bool strip_dos_header, bool chan
 		out.write(s.get_raw_data().data(), s.get_raw_data().length());
 	}
 }
+
+//Rebuild PE image and write it to "out" file
+//If strip_dos_header is true, DOS headers partially will be used for PE headers
+//If change_size_of_headers == true, SizeOfHeaders will be recalculated automatically
+//If save_bound_import == true, existing bound import directory will be saved correctly (because some compilers and bind.exe put it to PE headers)
+void rebuild_pe(pe_base& pe, char* out, bool strip_dos_header, bool change_size_of_headers, bool save_bound_import)
+{
+	std::ofstream pe_file(out, std::ios::out | std::ios::binary | std::ios::trunc);
+	if(!pe_file)
+	{
+		throw pe_exception("Error in open file.", pe_exception::stream_is_bad);
+	}
+	rebuild_pe(pe, pe_file, strip_dos_header, change_size_of_headers, save_bound_import);
+}
+
+
 }
