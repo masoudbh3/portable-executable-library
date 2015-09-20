@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 #include "stdint_defs.h"
-#if defined(_MSC_VER)
+#if defined(_MSC_VER) or defined(__MINGW32__)
 #define PE_BLISS_WINDOWS
 #endif
 
